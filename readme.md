@@ -2,6 +2,10 @@
 
 !rememberme is a bot created to help people remember stuff to do, being notificated from a Telegram message without needing to install external app.
 
+# Where to find it?
+
+You can find the bot already running [here](t.me/rememberme_fabiodev_bot)
+
 # How to use it
 
 ## Step 1 - Install Python and MongoDB
@@ -64,3 +68,4 @@ python3 main.py
 If you desire you can update the language too (i would be grateful if you do), just add a new "object" to the language.json file with the translation of the language you desire.
 
 I would be very greatful if you help me adding more languages!
+
