@@ -101,10 +101,10 @@ def new_remember_select_hour_expiring(message, remember_content, expiring_date_s
         bot.reply_to(message, text_document['warning_hour_format_wrong'])
     else:
         bot.reply_to(message, text_document['question_when_remember_hour'])
-    bot.register_next_step_handler(message, nuovo_ricordami_verifyHour, remember_content=remember_content, expiring_date_selected=expiring_date_selected)
+    bot.register_next_step_handler(message, new_remember_verifyHour, remember_content=remember_content, expiring_date_selected=expiring_date_selected)
 
 # Check hour entry
-def nuovo_ricordami_verifyHour(message, remember_content, expiring_date_selected):
+def new_remember_verifyHour(message, remember_content, expiring_date_selected):
     if message.text == text_document['cancel_button']:
         show_keyboard(message)
         return
