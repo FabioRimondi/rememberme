@@ -31,10 +31,10 @@ def about_me(message):
 def send_welcome(message):
     # Keyboard
     markup = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
-    itembtn1 = types.KeyboardButton(text_document['new_remember'])           # New "remember"
-    itembtn2 = types.KeyboardButton(text_document['remember_list'])            # List of "remember"
-    itembtn3 = types.KeyboardButton(text_document['delete_remember'])        # Delete "remember"
-    itembtn4 = types.KeyboardButton(text_document['about_me_button'])  # Info about me
+    itembtn1 = types.KeyboardButton(text_document['new_remember'])              # New "remember"
+    itembtn2 = types.KeyboardButton(text_document['remember_list'])             # List of "remember"
+    itembtn3 = types.KeyboardButton(text_document['delete_remember'])           # Delete "remember"
+    itembtn4 = types.KeyboardButton(text_document['about_me_button'])           # Info about me
     markup.add(itembtn1, itembtn2, itembtn3, itembtn4)
     # Return Welcome message and main menu keyboard
     bot.reply_to(message,text_document['welcome_message'], reply_markup=markup)
@@ -43,10 +43,10 @@ def send_welcome(message):
 def show_keyboard(message):
     # Keyboard
     markup = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
-    itembtn1 = types.KeyboardButton(text_document['new_remember'])           # New "remember"
-    itembtn2 = types.KeyboardButton(text_document['remember_list'])            # List of "remember"
-    itembtn3 = types.KeyboardButton(text_document['delete_remember'])        # Delete "remember"
-    itembtn4 = types.KeyboardButton(text_document['about_me_button'])  # Info about me
+    itembtn1 = types.KeyboardButton(text_document['new_remember'])              # New "remember"
+    itembtn2 = types.KeyboardButton(text_document['remember_list'])             # List of "remember"
+    itembtn3 = types.KeyboardButton(text_document['delete_remember'])           # Delete "remember"
+    itembtn4 = types.KeyboardButton(text_document['about_me_button'])           # Info about me
     markup.add(itembtn1, itembtn2, itembtn3, itembtn4)
     # Return Main menu message and main menu keyboard
     bot.send_message(message.from_user.id, text_document['main_menu'], reply_markup=markup)
