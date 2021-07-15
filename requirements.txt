@@ -1,3 +1,5 @@
+pytz==2020.1
 schedule==0.6.0
-pymongo==3.11.0
-pyTelegramBotAPI==3.7.3
+requests==2.23.0
+pymongo==3.10.1
+pyTelegramBotAPI==3.8.1
