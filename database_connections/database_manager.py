@@ -13,7 +13,8 @@ client = MongoClient(host=os.environ['rememberme_mongoip'],
             authSource= os.environ['rememberme_mongoauthsource'])
 
 # Database MongoDB
-db = client[os.environ['rememberme_mongodb']]       
+db          = client[os.environ['rememberme_mongodb']]       
 # Collection
-remembers = db.remembers
+remembers   = db.remembers
+users       = db.users
 
