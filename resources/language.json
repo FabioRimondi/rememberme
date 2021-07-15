@@ -1,5 +1,5 @@
 {
-    "EN":{
+    "en":{
         "new_remember": "➕ New thing to remember",
         "remember_list": "🗄 Remember List",
         "delete_remember": "❌ Delete Remember",
@@ -25,7 +25,7 @@
         "notification": "Hey, you asked me to remember *{}* now!",
         "about_me_message": "Hi! \n\nI'm Fabio (@fabiotm on Telegram) and this bot is borned in a boring evening during a English video-lesson. \n\nThe scope of this bot is to remember you the things to do in the case you forget a lot of things like me ;) \n You can find a copy of source code on my Github at link https://github.com/FabioRimondi/rememberme \n\nFeel free to DM me every question or hint you want!"
     },
-    "IT":{
+    "it":{
         "new_remember": "➕ Nuovo ricordami",
         "remember_list": "🗄 Lista ricordami",
         "delete_remember": "❌ Cancella ricordami",
