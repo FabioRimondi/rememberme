@@ -131,7 +131,7 @@ class about_this_bot_interaction_module:
         self.user       = user
         self.language   = user.language
 
-    def about_this_bot(message):
+    def about_this_bot(self, message):
         self.bot.send_message(chat_id=message.chat.id, text=text_document[self.language]['about_this_bot_message'], parse_mode='Markdown')
 
 class add_remember_interaction_module:
