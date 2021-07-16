@@ -140,7 +140,7 @@ def notify_task():
 
     for notification in to_notify:
         user = User(user_id=notification['user_id'])
-        bot.send_message(notification['user_id'], text_document[user.language]['notification'].format(notification['remember_name']), parse_mode="Markdown")
+        bot.send_message(notification['user_id'], text_document[user.language]['notification'].format(notification['content']), parse_mode="Markdown")
 
 def notify_scheduler():
     schedule.every(1).minutes.do(notify_task)                     # Schedule verification every minute
