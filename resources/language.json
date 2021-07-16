@@ -1,6 +1,6 @@
 {
     "en":{
-        "language_name" : "en - 🇬🇧 English",
+        "language_name" : "en- 🇬🇧 English",
         "welcome": "👋 Welcome to *!rememberme* bot! \n  Choose your language using the button belove! \n\n",
         "language_missing_message":"😰 Unfortunately seems that your language {} is not yet speaked by *!rememberme* bot. \n\n 😄 If you think this is a error because you see your language belove in the menu or want to help the author of the bot translating the bot in the missing language, you can freely contact me to help fixing the bug or adding a new language ",
         "bot_description": "Hi and welcome to !rememberme ! \n In short words this bot will help you remember everything just with a message! \n The scope of this bot is to give a simple tool to anyone, free to use, without needing to download any app or use anything complex for things simple as remember to do something. \n",
@@ -37,7 +37,7 @@
         "about_this_bot_message": "Hi! \n\nI'm Fabio (@fabiotm on Telegram) and this bot is borned in a boring evening during a English video-lesson. \n\nThe scope of this bot is to remember you the things to do in the case you forget a lot of things like me ;) \n You can find a copy of source code on my Github at link https://github.com/FabioRimondi/rememberme \n\nFeel free to DM me every question or hint you want!"
     },
     "it":{
-        "language_name" : "it - 🇮🇹 Italiano",
+        "language_name" : "it- 🇮🇹 Italiano",
         "welcome": "👋 Benvenuto sul bot *!rememberme*! \n  Scegli la tua lingua usando il bottone qui sotto! \n\n",
         "language_missing_message":"😰 Purtroppo sembra che la tua lingua {} non sia ancora parlata da *!rememberme* bot. \n\n 😄 Se credi che questo sia un errore perchè vedi il pulsante della tua lingua qui sotto o vuoi aiutare l'autore del bot ad aggiungere una lingua che conosci mancante, puoi contattarmi liberamente per aiutarmi a risolvere il problema o per aggiungere una nuova lingua!",
         "bot_description": "Ciao e benvenuto su !rememberme ! \n In poche parole questo bot ti aiuterà a ricordare tutto ciò che vuoi attraverso la ricezione di un semplice messaggio! \n Lo scopo principale di questo bot è di fornire uno strumento semplice a chiunque, gratis e libero da usare, senza bisogno di scaricare alcuna app o usare nulla di complesso per cose semplici come  ricordarsi di fare qualcosa. \n",
