@@ -37,19 +37,19 @@ class send_welcome_interaction_module:
         self.bot        = bot
 
     def send_welcome(self, message):
-        markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
+        markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True, one_time_keyboard=True)
         itembtn_ita = types.KeyboardButton(text_document["it"]['language_name'])
         itembtn_en = types.KeyboardButton(text_document["en"]['language_name'])
         markup.add(itembtn_ita, itembtn_en)
         
         # Try to load the language of the telegram client, if it doesn't appear will trow a error to the user
         try:
-            welcome_message = str(text_document[message.language]['welcome']) + "\n\n\n" + str(text_document["en"]['welcome'])
+            welcome_message = str(text_document[message.from_user.language_code]['welcome']) + "\n\n\n" + str(text_document["en"]['welcome'])
         except:
-            welcome_message = str(text_document["en"]['welcome']) +  str(text_document["en"]["language_missing_message"].format(str(message.language)))
+            welcome_message = str(text_document["en"]['welcome']) +  str(text_document["en"]["language_missing_message"].format(str(message.from_user.language_code)))
 
         self.bot.reply_to(message, welcome_message, reply_markup=markup)
-        self.bot.register_next_step_handler(message, self._new_remember_verify_date)
+        self.bot.register_next_step_handler(message, self._get_language_and_ask_living_city)
     
     def _get_language_and_ask_living_city(self, message):
         if message.text != text_document["it"]['language_name'] and message.text != text_document["en"]['language_name']:
@@ -58,9 +58,9 @@ class send_welcome_interaction_module:
             self.language = str(message.text).split('-')[0]
 
         # If here, the language is get
-        self.bot.reply_to(message, text_document[self.language]['bot_description'], parse_mode="Markdown")
-        self.bot.reply_to(message, text_document[self.language]['privacy_warning'], parse_mode="Markdown")
-        self.bot.reply_to(message, text_document[self.language]['asking_location'], parse_mode="Markdown")
+        self.bot.reply_to(message, text_document[self.language]['bot_description'], reply_markup=None, parse_mode="Markdown")
+        self.bot.reply_to(message, text_document[self.language]['privacy_warning'], reply_markup=None, parse_mode="Markdown")
+        self.bot.reply_to(message, text_document[self.language]['asking_location'], reply_markup=None, parse_mode="Markdown")
         self.bot.register_next_step_handler(message, self._try_guess_the_time)
 
     def _try_guess_the_time(self, message):
@@ -82,7 +82,7 @@ class send_welcome_interaction_module:
         user_hour           = now_utc.astimezone(timezone(self.timezone)) # Mezzanotte UTC macchina
 
         # Keyboard
-        markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
+        markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True, one_time_keyboard=True)
         yes = types.KeyboardButton(text_document[self.language]['yes'])
         no = types.KeyboardButton(text_document[self.language]['no'])
 
@@ -279,7 +279,7 @@ class remember_delete_interaction_module:
             return
 
         # Keyboard
-        markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
+        markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True, one_time_keyboard=True)
         yes = types.KeyboardButton(text_document[self.language]['yes'])
         no = types.KeyboardButton(text_document[self.language]['no'])
 
