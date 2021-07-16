@@ -22,12 +22,13 @@ class utilities_interaction_module:
     # Return main menu
     def show_keyboard(self, message):
         # Keyboard
-        markup = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
-        itembtn1 = types.KeyboardButton(text_document[self.language]['new_remember'])              # New "remember"
-        itembtn2 = types.KeyboardButton(text_document[self.language]['remember_list'])             # List of "remember"
-        itembtn3 = types.KeyboardButton(text_document[self.language]['delete_remember'])           # Delete "remember"
-        itembtn4 = types.KeyboardButton(text_document[self.language]['about_me_button'])           # Info about me
-        markup.add(itembtn1, itembtn2, itembtn3, itembtn4)
+        markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True, one_time_keyboard=True)
+        itembtn1 = types.KeyboardButton(text_document[self.language]['new_remember_button'])              # New "remember"
+        itembtn2 = types.KeyboardButton(text_document[self.language]['remember_list_button'])             # List of "remember"
+        itembtn3 = types.KeyboardButton(text_document[self.language]['delete_remember_button'])           # Delete "remember"
+        itembtn4 = types.KeyboardButton(text_document[self.language]['about_me_button'])                  # Info about me
+        itembtn5 = types.KeyboardButton(text_document[self.language]['change_language_button'])           # Change language
+        markup.add(itembtn1, itembtn2, itembtn3, itembtn4, itembtn5)
         # Return Main menu message and main menu keyboard
         self.bot.send_message(message.from_user.id, text_document[self.language]['main_menu'], reply_markup=markup)
 
@@ -107,11 +108,15 @@ class change_language_interaction_module:
         self.language   = user.language
 
     def change_language(self, message):
-        markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
+        markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True, one_time_keyboard=True)
         itembtn_ita = types.KeyboardButton(text_document["it"]['language_name'])
         itembtn_en = types.KeyboardButton(text_document["en"]['language_name'])
         markup.add(itembtn_ita, itembtn_en)
+
+        self.bot.send_message(chat_id=message.chat.id, text=text_document[self.language]['change_language_question'], reply_markup=markup, parse_mode='Markdown')
+        self.bot.register_next_step_handler(message, self._language_choosed)
         
+    def _language_choosed(self, message):
         if message.text != text_document["it"]['language_name'] and message.text != text_document["en"]['language_name']:
             utilities_interaction_module(self.bot, self.user).show_keyboard(message)
         else:
