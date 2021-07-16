@@ -20,7 +20,7 @@ class Remember:
             start_date / end_date : Filter for start and end of search.
         """
         remember_list = remember_utilities.return_expiring_remembers(start_date, end_date)
-        return remeber_list
+        return remember_list
     
     def _get_content(self):
         content = remember_utilities.remember_content(self.remember_id)
@@ -36,11 +36,9 @@ class Remember:
 
     @staticmethod
     def create(content, expire_date, user):
-        # Converting the hour
-        expire_date_utc = user.convert_in_utc_from_user_timezone(expire_date)
-        
+
         # Creating the remember
-        remember_utilities.create_remember(content, expire_date_utc, user.user_id)
+        remember_utilities.create_remember(content, expire_date, user.user_id)
         return 
 
     def delete(self):
