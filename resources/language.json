@@ -1,11 +1,22 @@
 {
     "en":{
-        "new_remember": "➕ New thing to remember",
-        "remember_list": "🗄 Remember List",
-        "delete_remember": "❌ Delete Remember",
+        "language_name" : "en - 🇬🇧 English",
+        "welcome": "👋 Welcome to *!rememberme* bot! \n  Choose your language using the button belove! \n\n",
+        "language_missing_message":"😰 Unfortunately seems that your language {} is not yet speaked by *!rememberme* bot. \n\n 😄 If you think this is a error because you see your language belove in the menu or want to help the author of the bot translating the bot in the missing language, you can freely contact me to help fixing the bug or adding a new language ",
+        "bot_description": "Hi and welcome to !rememberme ! \n In short words this bot will help you remember everything just with a message! \n The scope of this bot is to give a simple tool to anyone, free to use, without needing to download any app or use anything complex for things simple as remember to do something. \n",
+        "privacy_warning": "⚠️ Warning! \n The bot need to store data for working correctly, the data collected will be: \n - __The id of this chat to make possible to notify you back a thing to remember__ \n -__The language you choosed to use the bot__ \n - __Your timezone as for the standard ISO, to be able to notify you at the correct hour__ \n -__The hour you choose to be notified of something__ \n -__And lastly what you ask the bot to remember you__ \n \n You can check the respect of the privacy on the Github project folder available here https://github.com/FabioRimondi/rememberme \n \n Even if i will not use or sell any of your data, i ask gently to *not send any kind of sensible or too private information*, i'm not a security expert and continuing use this bot, you take the responsability to not give private or sensible information. \n \n",
+        "asking_location": "🚩 To complete the set up of the bot, i need to know in wich timezone you are. To help me understand it send me a city or a place you live near in your nation. I don't need your specific or real location, just a location with the same hour as yours. \n *This information will not be saved* \n \n",
+        "city_not_found":"❌ Didn't find any place with a name you entered, are you sure you inserted correctly? If so, try with another place or a more famous one to help me find the timezone. If the bot continue to not find the place, try contacting me at @fabiotm!",
+        "ask_timezone_confirm":"I found that the hour is {}, is it correct?",
+        "timezone_correct":"🎉 Well done! \n As i said your location was not registered, now i only know your timezone! \n You can start using the bot and have fun! 🎊",
+        "timezone_incorrect": "😭 Oh no! We should try again!",
+        "new_remember_button": "➕ New thing to remember",
+        "remember_list_button": "🗄 Remember List",
+        "delete_remember_button": "❌ Delete Remember",
         "about_me_button": "🔎 Information about me",
+        "change_language_button": "🏳️ Change language",
         "cancel_button": "🚫 Cancel",
-        "welcome_message": "Welcome on '!rememberme', the bot developed from @FabioTM cause he forgot everytime about important things!",
+        "welcome_message": "Welcome on '!rememberme', the bot developed by @FabioTM cause he forgot everytime about important things!",
         "main_menu": "Main menù ✔️",
         "question_what_to_remember": "What have i to remember you? 👋",
         "question_when_remember_date":"Great! When i have to remember you? 📅 \nWrite the date with 'DD/MM/YYYY' format",
@@ -23,13 +34,24 @@
         "done":"Done!",
         "cancelled":"Cancelled",
         "notification": "Hey, you asked me to remember *{}* now!",
-        "about_me_message": "Hi! \n\nI'm Fabio (@fabiotm on Telegram) and this bot is borned in a boring evening during a English video-lesson. \n\nThe scope of this bot is to remember you the things to do in the case you forget a lot of things like me ;) \n You can find a copy of source code on my Github at link https://github.com/FabioRimondi/rememberme \n\nFeel free to DM me every question or hint you want!"
+        "about_this_bot_message": "Hi! \n\nI'm Fabio (@fabiotm on Telegram) and this bot is borned in a boring evening during a English video-lesson. \n\nThe scope of this bot is to remember you the things to do in the case you forget a lot of things like me ;) \n You can find a copy of source code on my Github at link https://github.com/FabioRimondi/rememberme \n\nFeel free to DM me every question or hint you want!"
     },
     "it":{
-        "new_remember": "➕ Nuovo ricordami",
-        "remember_list": "🗄 Lista ricordami",
-        "delete_remember": "❌ Cancella ricordami",
+        "language_name" : "it - 🇮🇹 Italiano",
+        "welcome": "👋 Benvenuto sul bot *!rememberme*! \n  Scegli la tua lingua usando il bottone qui sotto! \n\n",
+        "language_missing_message":"😰 Purtroppo sembra che la tua lingua {} non sia ancora parlata da *!rememberme* bot. \n\n 😄 Se credi che questo sia un errore perchè vedi il pulsante della tua lingua qui sotto o vuoi aiutare l'autore del bot ad aggiungere una lingua che conosci mancante, puoi contattarmi liberamente per aiutarmi a risolvere il problema o per aggiungere una nuova lingua!",
+        "bot_description": "Ciao e benvenuto su !rememberme ! \n In poche parole questo bot ti aiuterà a ricordare tutto ciò che vuoi attraverso la ricezione di un semplice messaggio! \n Lo scopo principale di questo bot è di fornire uno strumento semplice a chiunque, gratis e libero da usare, senza bisogno di scaricare alcuna app o usare nulla di complesso per cose semplici come  ricordarsi di fare qualcosa. \n",
+        "privacy_warning": "⚠️ Attenzione! \n Il bot per funzionare correttamente ha bisogno di salvare alcuni dati, i dati che verranno raccolti saranno: \n - __L'id di questa chat per rendere possibile al bot di mandarti messaggi e notificarti le cose da ricordare__ \n -__La lingua che hai scelto per usare questo bot__ \n - __Il tuo fuso orario come descritto negli standard ISO, per essere in grado di mandarti le notifiche all'orario corretto__ \n -__L'ora che scegli a cui essere notificato di qualcosa__ \n -__E infine il contenuto di ciò che hai al bot di ricordarti__ \n \n Puoi verificare il rispetto della privacy nella repository Github disponibile qui https://github.com/FabioRimondi/rememberme \n \n Anche se non userò e non venderò nessuno dei tuoi dati, ti chiedo gentilmente di *non inviare alcun dato sensibile o informazione privata*, non sono un esperto di sicurezza e continuando a usare questo bot ti assumi la responsabilità di non inviare alcuna informazione privata o sensibile. \n \n",
+        "asking_location": "🚩 Per completare la configurazione di questo bot, ho bisogno di sapere in che fuso orario ti trovi. Per aiutarmi a trovarlo, inviami una citta o un posto vicino vicino nella tua nazione. Non ho bisogno della tua posizione specifica ne di quella reale, solo di un posto  con lo stesso orario che hai tu in questo momento. \n *Questa informazione non verrà salvata* \n \n",
+        "city_not_found":"❌ Non ho trovato alcun posto con il nome che hai inserito, sei sicuro di averlo inserito correttamente? Nel caso, prova con un altro posto, possibilmente con uno più famoso per aiutarmi a trovare il fuso orario. Se il bot continua a non trovare il posto, prova a contattarmi a @fabiotm!",
+        "ask_timezone_confirm":"Ho scoperto che l'ora è {}, è corretto?",
+        "timezone_correct":"🎉 Ben fatto! \n Come detto precedentemente, la tua posizione non è stata registrata, ora so solamente il tuo fuso orario! \n Puoi iniziare a usare il bot e buon divertimento! 🎊",
+        "timezone_incorrect": "😭 Oh no! Riproviamo!",
+        "new_remember_button": "➕ Nuovo ricordami",
+        "remember_list_button": "🗄 Lista ricordami",
+        "delete_remember_button": "❌ Cancella ricordami",
         "about_me_button": "🔎 Informazioni su chi sono",
+        "change_language_button": "🏳️ Cambia lingua",
         "cancel_button": "🚫 Annulla",
         "welcome_message": "Benvenuto su '!rememberme', il bot realizzato da @FabioTM perchè si scorda sempre le cose importanti!",
         "main_menu": "Menù principale ✔️",
@@ -49,6 +71,6 @@
         "done":"Fatto!",
         "cancelled":"Annullato",
         "notification": "Ehi, mi hai chiesto di ricordarti *{}* a quest'ora!",
-        "about_me_message": "Ciao! \n\nIo sono Fabio (@fabiotm su Telegram) e questo bot è nato in una serata di noia durante una videolezione d'Inglese. \n\nLo scopo di questo bot è quello di ricordarti le cose da fare nel caso tu sia uno smemorato come me ;) \nPuoi trovare una copia del codice sorgente sul mio Github al link https://github.com/FabioRimondi/rememberme \n\nSentiti libero di scrivermi in privato per qualsiasi domanda e consiglio!"
+        "about_this_bot_message": "Ciao! \n\nIo sono Fabio (@fabiotm su Telegram) e questo bot è nato in una serata di noia durante una videolezione d'Inglese. \n\nLo scopo di questo bot è quello di ricordarti le cose da fare nel caso tu sia uno smemorato come me ;) \nPuoi trovare una copia del codice sorgente sul mio Github al link https://github.com/FabioRimondi/rememberme \n\nSentiti libero di scrivermi in privato per qualsiasi domanda e consiglio!"
     }
 }
