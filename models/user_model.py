@@ -1,3 +1,4 @@
+import time, pytz
 from utilities.user_utilities import user_utilities
 from pytz import timezone
 
@@ -46,7 +47,6 @@ class User:
         """Converting from UTC hour to User hour
          
         """
-        utc_hour            = timezone("UTC").localize(date) # Mezzanotte macchina
-        user_hour           = utc_hour.astimezone(timezone(self.timezone)) # Mezzanotte UTC macchina
 
+        user_hour = date.replace(tzinfo=pytz.utc).astimezone(timezone(self.timezone))
         return user_hour
