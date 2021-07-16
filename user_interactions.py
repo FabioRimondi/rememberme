@@ -209,13 +209,12 @@ class add_remember_interaction_module:
             datetime.strptime(expiring_hour_selected, '%H:%M')
             remember_expire = datetime.strptime(expiring_date_selected + ' ' + expiring_hour_selected, '%d/%m/%Y %H:%M')
             remember_expire_in_utc = self.user.convert_in_utc_from_user_timezone(remember_expire)
-            self._add_remember(message=message, chat_id = message.chat.id, content = remember_content, expire = remember_expire_in_utc)
+            self._add_remember(message=message, chat_id = message.chat.id, content=remember_content, expire=remember_expire_in_utc)
         except:
             self._new_remember_select_hour_expiring(message,  remember_content=remember_content, expiring_date_selected=expiring_date_selected, error=True)    
 
     # Here will be called the function of the database to add the remember thing. After the User will be prompted with a confirmation message
     def _add_remember(self, message, chat_id, content, expire):
-
         Remember.create(content=content, expire_date=expire, user=self.user)
 
         expire_as_user_time_zone = self.user.convert_in_user_timezone_from_utc(expire)
