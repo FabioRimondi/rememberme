@@ -30,7 +30,7 @@ class User:
         return remember_list
 
     def change_language(self, new_language):
-        user_utilities.change_user_language(self.user_id, language)
+        user_utilities.change_user_language(self.user_id, new_language)
         return 
 
     # TODO IMPLEMENT CONVERSION UTC IN USER INTERACTION
