@@ -25,7 +25,7 @@
         "question_when_remember_hour":"Good! When you want to be notified? 🕐 \n Add hour in 'HH:MM' format",
         "warning_hour_format_wrong": "I need a hour in  HH:MM format! ⚠️ \n (for example 05:24)",
         "add_remember_confirmation": "Perfect! 👌 \n I'll remember you *{}* the *{}* day at *{}* hours",
-        "no_things_to_rememeber":  "🧹️ All clean here, you still don't asked me to remember you anything. \n \n Try ask me to remember something to you by pressing the \"➕ New thing to remember \" button!",
+        "no_things_to_remember":  "🧹️ All clean here, you still don't asked me to remember you anything. \n \n Try ask me to remember something to you by pressing the \"➕ New thing to remember \" button!",
         "show_list_title":  "📜Here is the list of what i've saved for you: \n \n",
         "list_element":"📌I'll remember you: *{}* The *{}* at *{}* \n",
         "what_to_delete": "Which element you want to delete❓",

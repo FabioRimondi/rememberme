@@ -234,8 +234,9 @@ class get_remember_list_interaction_module:
         remember_list = self.user.get_remember_list()
 
         # In case the list is empty, it mean the user don't have any remember still pending
-        if remember_list == []:
-            self.bot.reply_to(message, text_document[self.language]['no_things_to_rememeber'], parse_mode='Markdown')
+        if len(remember_list) == 0:
+            self.bot.reply_to(message, text_document[self.language]['no_things_to_remember'], parse_mode='Markdown')
+            utilities_interaction_module(self.bot, self.user).show_keyboard(message)
         else:
             payload_reply = text_document[self.language]['show_list_title']
             for remember in remember_list:
@@ -243,6 +244,7 @@ class get_remember_list_interaction_module:
                 payload_reply += text_document[self.language]['list_element'].format(remember['content'], datetime.strftime(expire_as_user_time_zone, "%d/%m/%Y "), datetime.strftime(expire_as_user_time_zone, "%H:%M"))
 
             self.bot.reply_to(message, payload_reply, parse_mode='Markdown')
+            utilities_interaction_module(self.bot, self.user).show_keyboard(message)
 
 class remember_delete_interaction_module:
     def __init__(self, bot, user):
