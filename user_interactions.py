@@ -96,6 +96,7 @@ class send_welcome_interaction_module:
             User.create(message.chat.id, self.language, self.timezone)
             self.bot.send_message(chat_id=message.chat.id, text=text_document[self.language]['timezone_correct'], parse_mode='Markdown')
             
+            self.user = User(message.chat.id)
             utilities_interaction_module(self.bot, self.user).show_keyboard(message)
         else:
             self.bot.send_message(chat_id=message.chat.id, text=text_document[self.language]['timezone_incorrect'], parse_mode='Markdown')
