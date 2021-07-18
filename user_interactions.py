@@ -268,12 +268,18 @@ class remember_delete_interaction_module:
             markup.add(str(index) + "- " + remember['content'])
             temp_list.append({'index': index, 'obj_id': remember['_id']})
 
+        itembtn = types.KeyboardButton(text_document[self.language]['cancel_button'])
+        markup.add(itembtn)
         self.bot.reply_to(message, text_document[self.language]['what_to_delete'], reply_markup=markup)
         self.bot.register_next_step_handler(message, self._verify_remember_delete, temp_list=temp_list)
 
     # Check if the user is sure to delete the element
     def _verify_remember_delete(self, message, temp_list):
         # To help the bot to not confuse itself with flood messages.
+        if message.text == text_document[self.language]['cancel_button']:
+            utilities_interaction_module(self.bot, self.user).show_keyboard(message)
+            return
+
         try:
             selected_index = int(str(message.text).split('-')[0]) - 1 # In "remember delete" to being more user friendly, i've hadded +1 to the index showed.
             selected_name = str(message.text).split('-')[1]
