@@ -44,7 +44,7 @@ class send_welcome_interaction_module:
         
         # Try to load the language of the telegram client, if it doesn't appear will trow a error to the user
         try:
-            welcome_message = str(text_document[message.from_user.language_code]['welcome']) + "\n\n\n" + str(text_document["en"]['welcome'])
+            welcome_message = str(text_document[message.from_user.language_code]['welcome']) + "\n" + str(text_document["en"]['welcome'])
         except:
             welcome_message = str(text_document["en"]['welcome']) +  str(text_document["en"]["language_missing_message"].format(str(message.from_user.language_code)))
 
@@ -100,6 +100,7 @@ class send_welcome_interaction_module:
             utilities_interaction_module(self.bot, self.user).show_keyboard(message)
         else:
             self.bot.send_message(chat_id=message.chat.id, text=text_document[self.language]['timezone_incorrect'], parse_mode='Markdown')
+            self.bot.reply_to(message, text_document[self.language]['asking_location'], reply_markup=None, parse_mode="Markdown")
             self.bot.register_next_step_handler(message, self._try_guess_the_time)
 
 class change_language_interaction_module:
