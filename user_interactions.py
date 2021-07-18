@@ -79,7 +79,7 @@ class send_welcome_interaction_module:
         self.timezone = timezone_response.json()["tz_name"]
 
         now_utc             = timezone("UTC").localize(datetime.now()) # Mezzanotte macchina
-        user_hour           = now_utc.astimezone(timezone(self.timezone)) # Mezzanotte UTC macchina
+        user_hour           = now_utc.astimezone(timezone(self.timezone)).strftime("%H:%M") # Mezzanotte UTC macchina
 
         # Keyboard
         markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True, one_time_keyboard=True)
