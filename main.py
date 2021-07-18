@@ -63,7 +63,7 @@ def about_me(message):
         # Get the user info
         user = User(message.chat.id)
         # Send Interaction
-        about_this_bot_interaction_module(bot, user).about_me(message)
+        about_this_bot_interaction_module(bot, user).about_this_bot(message)
     except Exception as e:
         logging.error("-----------------------------------")
         logging.error("Error: " + str(e))
