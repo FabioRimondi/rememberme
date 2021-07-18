@@ -1,3 +1,4 @@
+from datetime import datetime
 from database_connections.database_manager import users, remembers
 
 class user_utilities:
@@ -32,6 +33,12 @@ class user_utilities:
     @staticmethod
     def get_remember_list(user_id):
         remembers_list = [remember for remember in remembers.find({"user_id":user_id})]
+
+        return remembers_list
+
+    @staticmethod
+    def get_remember_list_only_pending(user_id):
+        remembers_list = [remember for remember in remembers.find({"user_id":user_id, "expire_date": {"$gte":datetime.now()}})]
 
         return remembers_list
     
