@@ -118,7 +118,7 @@ def remember_delete(message):
 # Delete a element from database
 @bot.message_handler(func=lambda message: message.text == text_document['en']['change_language_button'] and message.content_type == 'text')
 @bot.message_handler(func=lambda message: message.text == text_document['it']['change_language_button'] and message.content_type == 'text')
-def remember_delete(message):
+def change_language(message):
     try:
         # Get the user info
         user = User(message.chat.id)

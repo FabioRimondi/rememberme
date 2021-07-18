@@ -124,6 +124,7 @@ class change_language_interaction_module:
         else:
             self.language = str(message.text).split('-')[0]
             self.user.change_language(self.language)
+            self.user.language = self.language
             utilities_interaction_module(self.bot, self.user).show_keyboard(message)
         return
 
