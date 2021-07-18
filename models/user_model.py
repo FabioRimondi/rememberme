@@ -25,8 +25,11 @@ class User:
         timezone = user_utilities.user_timezone(self.user_id)
         return timezone
 
-    def get_remember_list(self):
-        remember_list = user_utilities.get_remember_list(self.user_id)
+    def get_remember_list(self, only_pending=False):
+        if only_pending == True:
+            remember_list = user_utilities.get_remember_list(self.user_id)
+        else:
+            remember_list = user_utilities.get_remember_list_only_pending(self.user_id)
         return remember_list
 
     def change_language(self, new_language):
