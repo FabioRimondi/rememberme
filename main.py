@@ -18,7 +18,7 @@ logging.basicConfig(filename="bot_log.txt",
                     level=logging.INFO)
 
 # Load the language selected.
-text_document = json.loads(open('resources\\language.json', 'r', encoding="UTF-8").read())
+text_document = json.loads(open(os.path.join("resources", "language.json"), 'r', encoding="UTF-8").read())
 
 # Listening for /start command - Welcome message + show main menu keyboard
 @bot.message_handler(commands=['start'])

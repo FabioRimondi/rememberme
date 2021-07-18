@@ -11,7 +11,7 @@ from models.rememberme_model import Remember
 
 
 # Load the language selected.
-text_document = json.loads(open('resources\\language.json', 'r', encoding="UTF-8").read())
+text_document = json.loads(open(os.path.join("resources", "language.json"), 'r', encoding="UTF-8").read())
 
 class utilities_interaction_module:
     def __init__(self, bot, user):
