@@ -136,6 +136,8 @@ class about_this_bot_interaction_module:
 
     def about_this_bot(self, message):
         self.bot.send_message(chat_id=message.chat.id, text=text_document[self.language]['about_this_bot_message'], parse_mode='Markdown')
+        utilities_interaction_module(self.bot, self.user).show_keyboard(message)
+
 
 class add_remember_interaction_module:
     def __init__(self, bot, user):
