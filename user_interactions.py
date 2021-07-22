@@ -5,7 +5,7 @@
 from telebot import types
 import json, os, requests, time
 from pytz import timezone
-from datetime import datetime 
+from datetime import datetime, timedelta
 from models.user_model import User
 from models.rememberme_model import Remember
 
@@ -158,19 +158,24 @@ class add_remember_interaction_module:
 
     # Choosing expiring date
     def _new_remember_select_date_expiring(self, message, remember_content = None):
-        
         if message.text == text_document[self.language]['cancel_button']:
             utilities_interaction_module(self.bot, self.user).show_keyboard(message)
             return
         
+        markup = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
+        itembtn1 = types.KeyboardButton(text_document[self.language]['cancel_button'])
+        itembtn2 = types.KeyboardButton(text_document[self.language]['today'])
+        itembtn3 = types.KeyboardButton(text_document[self.language]['tomorrow'])
+        markup.add(itembtn1, itembtn2, itembtn3)
         # This verify exist because i can come back to this function after the function "new_remember_verify_date" validated a wrong date.
         # I need this because i have to save the value of what i have to remember.
+
+        # remember_content is not none only if is called from another function, but is None after the user wrote the new thing to remember
         if remember_content == None:
             remember_content = message.text 
-            self.bot.reply_to(message, text_document[self.language]['question_when_remember_date'])
+            self.bot.reply_to(message, text_document[self.language]['question_when_remember_date'], reply_markup=markup)
         else:
-            remember_content = remember_content
-
+            remember_content = remember_content       
         
         self.bot.register_next_step_handler(message, self._new_remember_verify_date, remember_content=remember_content)
 
@@ -179,15 +184,21 @@ class add_remember_interaction_module:
         if message.text == text_document[self.language]['cancel_button']:
             utilities_interaction_module(self.bot, self.user).show_keyboard(message)
             return
-
-        expiring_date_selected = message.text # Day for notification
-        try:
-            datetime.strptime(expiring_date_selected, '%d/%m/%Y')
-            self._new_remember_select_hour_expiring(message, remember_content=remember_content, expiring_date_selected=expiring_date_selected)
+        elif message.text == text_document[self.language]['today']:
+            self._new_remember_select_hour_expiring(message, remember_content=remember_content, expiring_date_selected=datetime.now())
         
-        except:
-            self.bot.reply_to(message, text_document[self.language]['warning_date_format_wrong'])
-            self._new_remember_select_date_expiring(message,  remember_content=remember_content)    
+        elif message.text == text_document[self.language]['tomorrow']:
+            self._new_remember_select_hour_expiring(message, remember_content=remember_content, expiring_date_selected=(datetime.now()+ timedelta(days=1)))
+            
+        else:
+            expiring_date_selected = message.text # Day for notification
+            try:
+                datetime.strptime(expiring_date_selected, '%d/%m/%Y')
+                self._new_remember_select_hour_expiring(message, remember_content=remember_content, expiring_date_selected=expiring_date_selected)
+            
+            except:
+                self.bot.reply_to(message, text_document[self.language]['warning_date_format_wrong'])
+                self._new_remember_select_date_expiring(message,  remember_content=remember_content)    
 
     # Choosing expiring hour
     def _new_remember_select_hour_expiring(self, message, remember_content, expiring_date_selected, error=False):
