@@ -57,11 +57,11 @@ class send_welcome_interaction_module:
         else:
             self.language = str(message.text).split('-')[0]
 
-        # If here, the language is get
-        self.bot.reply_to(message, text_document[self.language]['bot_description'], reply_markup=None, parse_mode="Markdown")
-        self.bot.reply_to(message, text_document[self.language]['privacy_warning'], reply_markup=None, parse_mode="Markdown")
-        self.bot.reply_to(message, text_document[self.language]['asking_location'], reply_markup=None, parse_mode="Markdown")
-        self.bot.register_next_step_handler(message, self._try_guess_the_time)
+            # If here, the language is get
+            self.bot.reply_to(message, text_document[self.language]['bot_description'], reply_markup=None, parse_mode="Markdown")
+            self.bot.reply_to(message, text_document[self.language]['privacy_warning'], reply_markup=None, parse_mode="Markdown")
+            self.bot.reply_to(message, text_document[self.language]['asking_location'], reply_markup=None, parse_mode="Markdown")
+            self.bot.register_next_step_handler(message, self._try_guess_the_time)
 
     def _try_guess_the_time(self, message):
         # Here i ask a list of places with that name and hope to catch it by choosing the first. 
