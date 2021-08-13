@@ -138,7 +138,6 @@ class about_this_bot_interaction_module:
         self.bot.send_message(chat_id=message.chat.id, text=text_document[self.language]['about_this_bot_message'], parse_mode='Markdown')
         utilities_interaction_module(self.bot, self.user).show_keyboard(message)
 
-
 class add_remember_interaction_module:
     def __init__(self, bot, user):
         self.bot        = bot
@@ -261,6 +260,50 @@ class get_remember_list_interaction_module:
             self.bot.reply_to(message, payload_reply, parse_mode='Markdown')
             utilities_interaction_module(self.bot, self.user).show_keyboard(message)
 
+class remember_postpone_module:   
+    def __init__(self, bot, user):
+        self.bot        = bot
+        self.user       = user
+        self.language   = user.language
+
+    def remember_hour_postpone(self, call, remember_id):
+        """
+            If this function is being called, that means that someone pressed the button to postpone. 
+        """
+        markup = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True, one_time_keyboard=True)
+
+        itembtn1 = types.KeyboardButton(text_document[self.language]['10_minutes'])              # New "remember"
+        itembtn2 = types.KeyboardButton(text_document[self.language]['30_minutes'])              # New "remember"
+        itembtn3 = types.KeyboardButton(text_document[self.language]['1_hour'])              # New "remember"
+        itembtn4 = types.KeyboardButton(text_document[self.language]['1_day'])              # New "remember"
+
+        markup.add(itembtn1, itembtn2, itembtn3, itembtn4)
+
+        self.bot.reply_to(call.message, text_document[self.language]['postpone_message'], reply_markup=markup)
+        self.bot.register_next_step_handler(call.message, self._remember_hour_postpone, remember_id=remember_id)
+
+    def _remember_hour_postpone(self, message, remember_id):
+        if message.text == text_document[self.language]['10_minutes']:
+            hour = datetime.now() + timedelta(minutes=10)
+        elif message.text == text_document[self.language]['30_minutes']:
+            hour = datetime.now() + timedelta(minutes=30)
+        elif message.text == text_document[self.language]['1_hour']:
+            hour = datetime.now() + timedelta(hour=1)
+        elif message.text == text_document[self.language]['1_day']:
+            hour = datetime.now() + timedelta(hour=24)
+
+        else:
+            utilities_interaction_module(self.bot, self.user).show_keyboard(message)
+            return
+            
+
+        Remember(remember_id=remember_id).edit_expiredate(new_expire = hour)
+        expire_as_user_time_zone = self.user.convert_in_user_timezone_from_utc(hour)
+
+        self.bot.reply_to(message, text_document[self.language]['postpone_done'].format(datetime.strftime(expire_as_user_time_zone, "%d/%m/%Y %H:%M")))
+        utilities_interaction_module(self.bot, self.user).show_keyboard(message)
+
+        
 class remember_delete_interaction_module:
     def __init__(self, bot, user):
         self.bot        = bot

@@ -1,11 +1,13 @@
 from utilities.rememberme_utilities import remember_utilities
 from datetime import datetime
 
+from bson.objectid import ObjectId
+
 # Remember Class is the module to manage everything regarding the database
 class Remember:
     def __init__(self, remember_id :str):
         """ 
-            user_id (str) : User ID
+            remember_id (str) : Remember ID
         """
         self.remember_id    = remember_id
         self.user_id        = self._get_user_id()
@@ -23,15 +25,15 @@ class Remember:
         return remember_list
     
     def _get_content(self):
-        content = remember_utilities.remember_content(self.remember_id)
+        content = remember_utilities.remember_content(ObjectId(self.remember_id))
         return content
 
     def _get_expire_date(self):
-        expire_date = remember_utilities.remember_expire_date(self.remember_id)
+        expire_date = remember_utilities.remember_expire_date(ObjectId(self.remember_id))
         return expire_date
 
     def _get_user_id(self):
-        user_id = remember_utilities.remember_user_id(self.remember_id)
+        user_id = remember_utilities.remember_user_id(ObjectId(self.remember_id))
         return user_id
 
     @staticmethod
@@ -45,4 +47,8 @@ class Remember:
         # Creating the remember
         remember_utilities.delete_remember(self.remember_id)
         return 
+    
+    def edit_expiredate(self, new_expire):
+        remember_utilities.update_remember_expiredate(remember_id=ObjectId(self.remember_id), new_expire=new_expire)
+        return
             

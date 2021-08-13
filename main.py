@@ -1,4 +1,3 @@
-# TODO Aggiungere pulsante "cambio lingua"
 from user_interactions import *
 from models.user_model import User
 from models.rememberme_model import Remember
@@ -130,6 +129,20 @@ def change_language(message):
         logging.error("Message:" + str(message))
         logging.error("Function: change_language")
 
+# Query Handler used for message button response
+@bot.callback_query_handler(func=lambda call: True)
+def handle_query(call):
+    if call.data.startswith("postpone_remermberme_id"):
+
+        remember_id = call.data.split("-")[-1]
+        user = User(call.from_user.id)
+        
+        # Added this check to be sure that people don't start postponing random things
+        if Remember(remember_id).user_id != call.from_user.id:
+            utilities_interaction_module(bot, user).show_keyboard(call)
+        else:
+            remember_postpone_module(bot, user).remember_hour_postpone(call, remember_id=remember_id)
+
 def start_bot():
     bot.polling()
 
@@ -140,7 +153,13 @@ def notify_task():
 
     for notification in to_notify:
         user = User(user_id=notification['user_id'])
-        bot.send_message(notification['user_id'], text_document[user.language]['notification'].format(notification['content']), parse_mode="Markdown")
+
+        # I use the Keyboard to give the user to postpone a "Remember"
+        keyboard = types.InlineKeyboardMarkup()
+        callback_button = types.InlineKeyboardButton(text=text_document[user.language]['postpone_button'], callback_data="postpone_remermberme_id -" + str(notification['_id']))
+        keyboard.add(callback_button)
+
+        bot.send_message(notification['user_id'], text_document[user.language]['notification'].format(notification['content']), parse_mode="Markdown", reply_markup=keyboard)
 
 def notify_scheduler():
     schedule.every(1).minutes.do(notify_task)                     # Schedule verification every minute

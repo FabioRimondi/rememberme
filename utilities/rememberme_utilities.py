@@ -15,6 +15,7 @@ class remember_utilities:
     @staticmethod
     def remember_user_id(remember_id):
         remember = remembers.find({ "_id":remember_id})
+
         return remember[0]['user_id']
 
     @staticmethod
@@ -39,3 +40,14 @@ class remember_utilities:
             return True
         except:
             return False
+
+    @staticmethod
+    def update_remember_expiredate(remember_id, new_expire):
+        remember_query = { "_id":remember_id}
+
+        new_remember = remembers.find({ "_id":remember_id})[0]
+        new_remember['expire_date'] = new_expire
+        
+        remembers.replace_one(remember_query, new_remember)
+        
+        return

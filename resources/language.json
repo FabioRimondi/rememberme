@@ -37,6 +37,13 @@
         "done":"Done!",
         "cancelled":"Cancelled",
         "notification": "Hey, you asked me to remind you *{}* now!",
+        "postpone_button": "🕐 Postpone",
+        "postpone_message":"When do you want to remember this thing again?",
+        "postpone_done": "✔️ Done, i'll remember you again at {}",
+        "10_minutes": "In 10 Minutes",
+        "30_minutes":"In 30 Minutes",
+        "1_hour": "In 1 Hour",
+        "1_day":"In 1 Day",
         "about_this_bot_message": "Hi! \n\nI'm Fabio (@fabiotm on Telegram) and this bot was born in a boring evening during an English video-lesson. \n\nThe scope of this bot is to remind you the things to do in case you forget a lot of things like me ;) \nYou can find a copy of source code on my Github at link https://github.com/FabioRimondi/rememberme \n\nFeel free to DM me every question or hint you want!"
     },
     "it":{
@@ -77,6 +84,13 @@
         "done":"Fatto!",
         "cancelled":"Annullato",
         "notification": "Ehi, mi hai chiesto di ricordarti *{}* a quest'ora!",
+        "postpone_button": "🕐 Posticipa",
+        "postpone_message":"Quando dovrò ricordartelo nuovamente?",
+        "postpone_done": "✔️ Fatto, te lo ricorderò nuovamente il {}",
+        "10_minutes": "Tra 10 Minuti",
+        "30_minutes":"Tra 30 Minuti",
+        "1_hour": "Tra 1 Ora",
+        "1_day":"Tra 1 Giorno",
         "about_this_bot_message": "Ciao! \n\nIo sono Fabio (@fabiotm su Telegram) e questo bot è nato in una serata di noia durante una videolezione d'Inglese. \n\nLo scopo di questo bot è quello di ricordarti le cose da fare nel caso tu sia uno smemorato come me ;) \nPuoi trovare una copia del codice sorgente sul mio Github al link https://github.com/FabioRimondi/rememberme \n\nSentiti libero di scrivermi in privato per qualsiasi domanda e consiglio!"
     }
 }
