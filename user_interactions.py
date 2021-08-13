@@ -184,10 +184,10 @@ class add_remember_interaction_module:
             utilities_interaction_module(self.bot, self.user).show_keyboard(message)
             return
         elif message.text == text_document[self.language]['today']:
-            self._new_remember_select_hour_expiring(message, remember_content=remember_content, expiring_date_selected=datetime.now())
+            self._new_remember_select_hour_expiring(message, remember_content=remember_content, expiring_date_selected=datetime.now().strftime("%d/%m/%Y"))
         
         elif message.text == text_document[self.language]['tomorrow']:
-            self._new_remember_select_hour_expiring(message, remember_content=remember_content, expiring_date_selected=(datetime.now()+ timedelta(days=1)))
+            self._new_remember_select_hour_expiring(message, remember_content=remember_content, expiring_date_selected=(datetime.now()+ timedelta(days=1)).strftime("%d/%m/%Y"))
             
         else:
             expiring_date_selected = message.text # Day for notification
