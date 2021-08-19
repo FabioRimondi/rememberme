@@ -288,9 +288,9 @@ class remember_postpone_module:
         elif message.text == text_document[self.language]['30_minutes']:
             hour = datetime.now() + timedelta(minutes=30)
         elif message.text == text_document[self.language]['1_hour']:
-            hour = datetime.now() + timedelta(hour=1)
+            hour = datetime.now() + timedelta(hours=1)
         elif message.text == text_document[self.language]['1_day']:
-            hour = datetime.now() + timedelta(hour=24)
+            hour = datetime.now() + timedelta(hours=24)
 
         else:
             utilities_interaction_module(self.bot, self.user).show_keyboard(message)
